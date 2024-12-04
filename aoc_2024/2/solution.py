@@ -15,17 +15,10 @@ def check(report):
 
 
 def check_single_bad(report):
-    if report[0] > report[1]:
-        report = report[::-1]
-    # sooo ugly, tried with removing single bad level and recursion, couldnt make it work
+    # ugly brute force
     for remove in range(len(report)):
         cp_report = np.delete(report, remove)
-        for i in range(0, len(cp_report) - 1):
-            if (cp_report[i + 1] - cp_report[i]) >= 1 and (cp_report[i + 1] - cp_report[i]) <= 3:
-                continue
-            else:
-                break
-        else:
+        if check(cp_report) == 1:
             return 1
     else:
         return 0
