@@ -1,6 +1,6 @@
 import numpy as np
 
-data = np.loadtxt("input.txt")
+data = np.loadtxt("data/day_01.txt")
 col1 = np.sort(data[:, 0])
 col2 = np.sort(data[:, 1])
 distance = np.sum(np.abs(col1 - col2))

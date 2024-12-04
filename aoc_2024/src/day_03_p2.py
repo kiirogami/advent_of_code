@@ -1,7 +1,7 @@
 import re
 import numpy as np
 
-with open("input.txt", "r") as file:
+with open("data/day_03.txt", "r") as file:
     text = file.read()
 pattern_mul = r"mul\((\d+),(\d+)\)"
 pattern_enable = r"do()"
@@ -10,7 +10,7 @@ patterns = [pattern_mul, pattern_mul, pattern_disable]
 
 matches = []
 
-for pattern in [pattern_enable, pattern_mul,pattern_disable]:
+for pattern in [pattern_enable, pattern_mul, pattern_disable]:
     for match in re.finditer(pattern, text):
         if pattern == pattern_mul:
             matches.append((pattern, match.start(), match.group(1), match.group(2)))

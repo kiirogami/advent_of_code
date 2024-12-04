@@ -17,6 +17,7 @@ def check_direction(pos, dir):
 
 
 def check_all_directions(pos):
+    # so ugly but w/e
     directions = [
         [1, 0],
         [0, 1],
@@ -34,11 +35,10 @@ def check_all_directions(pos):
     return amount
 
 
-with open("input.txt", "r") as file:
+with open("data/day_04.txt", "r") as file:
     lines = file.readlines()
 
 lines = [line.strip() for line in lines]
-lines
 text = "XMAS"
 text_len = len(text)
 y_len = len(lines)

@@ -1,7 +1,7 @@
 import re
 import numpy as np
 
-with open("input.txt", "r") as file:
+with open("data/day_03.txt", "r") as file:
     text = file.read()
 pattern = r"mul\((\d+),(\d+)\)"
 matches = re.findall(pattern, text)

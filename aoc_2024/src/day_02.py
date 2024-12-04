@@ -14,6 +14,7 @@ def check(report):
         return 1
 
 
+# part 2
 def check_single_bad(report):
     # ugly brute force
     for remove in range(len(report)):
@@ -26,7 +27,7 @@ def check_single_bad(report):
 
 safe = 0
 safe_tolerance = 0
-with open("input.txt", "r") as f:
+with open("data/day_02.txt", "r") as f:
     for line in f:
         row = line.strip().split(" ")
         row = np.array(row, dtype=float)

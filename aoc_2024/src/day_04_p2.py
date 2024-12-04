@@ -19,7 +19,7 @@ def check_letter(pos):
     return 0
 
 
-with open("input.txt", "r") as file:
+with open("data/day_04.txt", "r") as file:
     lines = file.readlines()
 
 lines = [line.strip() for line in lines]
