@@ -23,6 +23,7 @@ while running:
         result = np.append(result, number * np.ones(digits[idx]))
         number += 1
     else:
+
         while digits[idx] > 0:
             if digits[idx] > digits[last_num_idx]:
                 result = np.append(result, last_num * np.ones(digits[last_num_idx]))
