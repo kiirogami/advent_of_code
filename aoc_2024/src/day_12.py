@@ -73,12 +73,5 @@ def calculate_perimeters(grid):
     return dict(perimeters)
 
 
-class Group:
-    def __init__(self, id, key, position):
-        self.id = id
-        self.key = key
-        self.map = [position]
-
-
 if __name__ == "__main__":
     main()

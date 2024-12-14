@@ -32,8 +32,10 @@ def main():
                     else:
                         total_cost += cost
                 else:
-                    target = np.asarray(target)
-                    target = target + np.array([10000000000000, 10000000000000])
+                    target = np.asarray(target, dtype=np.float64)
+                    target = target + np.array(
+                        [10000000000000, 10000000000000], dtype=np.float64
+                    )
                     a_amount, b_amount, cost = LP_result(a, b, target)
                     if cost is None:
                         pass
@@ -45,20 +47,28 @@ def main():
 
 
 def LP_result(a_press, b_press, target):
-    costs = np.array([3, 1])
-    A = np.vstack((a_press, b_press)).T
-    b = np.asarray(target)
+    costs = np.array([3, 1], dtype=np.float64)
+    A = np.vstack((a_press, b_press), dtype=np.float64).T
+    b = np.asarray(target, dtype=np.float64)
 
     bounds = [(0, None), (0, None)]  # positive a_amount and b_amount
 
-    result = linprog(
-        c=costs,
-        A_eq=A,
-        b_eq=b,
-        bounds=bounds,
-        method="highs",
-        integrality=[1, 1],  # int result
-    )
+    # result = linprog(
+    #     c=costs,
+    #     A_eq=A,
+    #     b_eq=b,
+    #     bounds=bounds,
+    #     method="highs",
+    #     integrality=[1, 1],  # int result
+    # )
+
+    result_2 = np.linalg.solve(A, b)
+    result_2 = np.round(result_2, 2)
+
+    if np.array_equal(result_2 % 1, [0, 0]) and all(result_2 >= 0):
+        return (result_2[0], result_2[1], np.sum(result_2 * costs))
+    else:
+        return (None, None, None)
 
     if result.success:
         return (result.x[0], result.x[1], result.fun)
@@ -68,3 +78,6 @@ def LP_result(a_press, b_press, target):
 
 if __name__ == "__main__":
     main()
+    70179294109316
+    65872475396210
+    92871736253789
