@@ -1,2 +1,3 @@
-# advent_of_code
-new repo without user data inputs
+# advent-of-code
+
+My solutions for [Advent of code](https://adventofcode.com/).
