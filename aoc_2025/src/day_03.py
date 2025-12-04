@@ -2,7 +2,6 @@ import numpy as np
 
 PATH = "data/day_03_easy.txt"
 PATH = "data/day_03.txt"
-DIVS = {}
 
 
 def total_joltage(data, digits=12):
