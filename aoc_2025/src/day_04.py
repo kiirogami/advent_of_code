@@ -6,13 +6,12 @@ PATH = "data/day_04.txt"
 
 
 def part2(data):
-    solution = 0
     result, rolls = part1(data)
-    solution += result
-    while result != 0:
-        result, rolls = part1(rolls)
-        solution += result
-    return solution
+
+    if result == 0:
+        return 0
+
+    return result + part2(rolls)
 
 
 def part1(data):
