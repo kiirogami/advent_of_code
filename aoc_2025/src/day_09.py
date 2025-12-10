@@ -6,7 +6,7 @@ PATH = "data/day_09_easy.txt"
 
 
 def main():
-    data = np.loadtxt(PATH, dtype=int, delimiter=",")
+    data = np.genfromtxt(PATH, dtype=str, delimiter=1)
     print(f"part1: {part1(data)}")
     # print(f"part2: {part2(data)}")
 
